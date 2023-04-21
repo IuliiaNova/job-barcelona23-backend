@@ -1,10 +1,8 @@
 const UserModel = require('../models/user.model')
 
-const signUp = async (req, res) => {
-  const { name, password, email } = req.body
+const userWelcome = (req, res) => {
   try {
-    const user = await UserModel.create({ name, password, email })
-    res.status(200).send({ data: user })
+    res.status(200).send('GitHub social login implementaion')
   }catch (error){
     res.status(500).send({ message: error.message })
   }
@@ -12,30 +10,47 @@ const signUp = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await UserModel.find({})
+    const users = await UserModel.find()
     res.status(200).send({ data: users })
   }catch (error){
     res.status(500).send({ message: error.message })
   }
 }
 
-const checkUser = async (req, res) => {
-  const { name, password, email } = req.body
+const findUser = async (accessToken, profile, done) => {
+  let user = await UserModel.findOne({ githubId: profile.id});
+  if(!user) {
+  user = new UserModel({
+    githubId: profile.id,
+    username: profile.username,
+    profileUrl:  profile.profileUrl,
+    email: profile.emails[0].value,
+    token: accessToken,
+    avatarUrl: profile.photos[0].value
+  });
+  await user.save();
+}
+return done(null, user)
+}
 
-  try {
-    const user = await UserModel.findOne({ email })
-    console.log(user)
-    if(user){
-     return res.status(200).send({ msg: 'Exists', id: user._id })
+
+const addStar = async (req, res) => {
+  try{
+    const { repositoryName } = req.params;
+    const user = req.user;
+
+    if(user.hasStarRepo.includes(repositoryName)){
+      return res.status(400).send({ message: 'You have already starred this repository'})
     }
 
-    const newUser = await UserModel.create({name, password, email})
-    res.status(201).send({ data: newUser })
-  }catch (error){
+    user.hasStarRepo.push(repositoryName);
+    await user.save(); 
+
+  }catch(error){
     res.status(500).send({ message: error.message })
   }
 }
 
 module.exports = {
-  signUp, getAllUsers, checkUser
+  userWelcome, getAllUsers, findUser, addStar
 }

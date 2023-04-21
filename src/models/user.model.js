@@ -1,19 +1,14 @@
 const { Schema, model } = require('mongoose')
 
 const UserSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Please put your name']
-  },
-  email: {
-    type: String,
-    required: [true, 'Please put your email']
-  },
-  picture: {
-    type: String,
-    required: [true, 'Please update your profile photo']
+  githubId: String,
+  username: String,
+  profileUrl:  String,
+  email: String,
+  token: String,
+  avatarUrl: String
   }
-})
+)
 
 const UserModel = model('User', UserSchema)
 

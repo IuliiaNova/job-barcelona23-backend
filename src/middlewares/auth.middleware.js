@@ -1,12 +1,10 @@
-const { auth } = require('express-oauth2-jwt-bearer');
-require("dotenv").config();
 
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/auth/github');
+}
 
-exports.jwtCheck = auth({
-  audience: process.env.AUDIENCE,
-  issuerBaseURL: process.env.ISSUER_BASE_URL,
-  tokenSigningAlg: process.env.TOKEN_SIGNING_ALG
-});
-
-
+module.exports = ensureAuthenticated
 
