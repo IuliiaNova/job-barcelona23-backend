@@ -15,13 +15,13 @@ git clone https://github.com/IuliiaNova/job-barcelona23-backend
 3. Crear un archivo **.env** en la raíz del proyecto y agregar las siguientes variables de entorno:
 
 **Copy code**
->GITHUB_CLIENT_ID=<tu_client_id>
->GITHUB_CLIENT_SECRET=<tu_client_secret>
->GITHUB_CALLBACK_URL=http://localhost:`${PORT}`/user/auth/github/callback
->SESSION_SECRET=<tu_session_secret>
->DB_URI=<tu_db_uri>
->PORT={YOUR_PORT}
->MONGODB_URI={YOUR_MONGODB_URI}
+> - *GITHUB_CLIENT_ID*=<tu_client_id>
+> - *GITHUB_CLIENT_SECRET*=<tu_client_secret>
+> - *GITHUB_CALLBACK_URL*=http://localhost:`${PORT}`/user/auth/github/callback
+> - *SESSION_SECRET*=<tu_session_secret>
+> - *DB_URI*=<tu_db_uri>
+> - *PORT*={YOUR_PORT}
+> - *MONGODB_URI*={YOUR_MONGODB_URI}
 
 *GITHUB_CLIENT_ID y GITHUB_CLIENT_SECRET* son las credenciales de autenticación de GitHub que se deben obtener en el portal de desarrolladores de GitHub.
 
