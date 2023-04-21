@@ -17,7 +17,7 @@ git clone https://github.com/IuliiaNova/job-barcelona23-backend
 **Copy code**
 > - *GITHUB_CLIENT_ID*=<tu_client_id>
 > - *GITHUB_CLIENT_SECRET*=<tu_client_secret>
-> - *GITHUB_CALLBACK_URL*=http://localhost:`${PORT}`/user/auth/github/callback
+> - *GITHUB_CALLBACK_URL*='http://localhost:`${PORT}`/user/auth/github/callback'
 > - *SESSION_SECRET*=<tu_session_secret>
 > - *DB_URI*=<tu_db_uri>
 > - *PORT*={YOUR_PORT}
