@@ -55,4 +55,4 @@ Se ha implementado un middleware para proteger las rutas que requieren autentica
 Si deseas contribuir a este proyecto, siéntete libre de hacer un fork del repositorio y crear una pull request con tus cambios.
 
 ### Desarrolladora
-Para ver mas mis proyectos os envito a visitar mi GitHub (Iuliia Shikhanova)[https://github.com/IuliiaNova]
+Para ver más mis proyectos os invito a visitar mi GitHub (Iuliia Shikhanova)[https://github.com/IuliiaNova]
