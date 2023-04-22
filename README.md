@@ -51,6 +51,10 @@ Se ha implementado un middleware para proteger las rutas que requieren autentica
 
 ## Calidad de código
 
+![Codefactor](./assets/check.png)
+
+
+
 ### Contribución
 Si deseas contribuir a este proyecto, siéntete libre de hacer un fork del repositorio y crear una pull request con tus cambios.
 
